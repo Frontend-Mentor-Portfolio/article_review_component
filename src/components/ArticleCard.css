@@ -1,0 +1,101 @@
+/* ... existing styles ... */
+
+/* Desktop card container */
+.article-card {
+  position: relative; /* Needed to anchor the tooltip inside the card */
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* image left, text right */
+  background: #ffffff; /* Card should be white; page bg is the grayish blue */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ... existing content styles ... */
+
+/* Bottom-right controls area */
+.share-controls {
+  position: absolute;
+  right: 32px;
+  bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Share button */
+.share-button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: hsl(210, 46%, 95%); /* matches card bg */
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+.share-button.active {
+  background: hsl(214, 17%, 51%); /* desaturated dark blue */
+}
+.share-button img {
+  width: 18px;
+  height: 18px;
+  filter: invert(33%) sepia(6%) saturate(610%) hue-rotate(178deg) brightness(93%) contrast(92%);
+}
+
+/* Tooltip styling (desktop) */
+.share-tooltip {
+  position: absolute;
+  right: 0;                /* aligns to the right edge near the button */
+  bottom: 56px;            /* sits above the button */
+  background: hsl(217, 19%, 35%); /* very dark grayish blue */
+  color: hsl(210, 46%, 95%);
+  padding: 14px 22px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 16px 32px rgba(0,0,0,.18);
+  min-height: 48px;
+}
+
+/* Arrow that points to the share button */
+.share-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  /* nudge the arrow so it points to the center of the share button */
+  right: 24px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid hsl(217, 19%, 35%);
+}
+
+/* "SHARE" label */
+.share-label {
+  color: hsl(212, 23%, 69%);      /* grayish blue */
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* Social icons */
+.share-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.share-icons a img {
+  width: 18px;
+  height: 18px;
+  display: block;
+  filter: brightness(0) invert(1); /* white icons */
+}
+.share-icons a:hover img {
+  opacity: 0.85;
+}
+
+/* ... existing styles ... */
